@@ -5,28 +5,32 @@ let ProfitAndLoss = () => {
   let [quantity, setIQuantity] = useState(0);
   let [current, setCurrent] = useState(0);
   let [output, setOutput] = useState("");
-  let [clr,setClr] = useState('grey');
+  let [clr, setClr] = useState("grey");
 
   let checkProfitAndLoss = () => {
-    if (initial > current) {
-      let loss = (initial - current) / quantity;
-      let lossPercentage = (loss / initial) * 100;
-      setOutput(
-        `Your loss is ${loss}, loss rate is ${lossPercentage.toFixed(2)}%`
-      );
-      setClr('#dc2626');
-    } else if (current > initial) {
-      let profit = (current - initial) / quantity;
-      let profitPercentage = (profit / initial) * 100;
-      setOutput(
-        `Your profit is ${profit}, growth rate is ${profitPercentage.toFixed(
-          2
-        )}%`
-      );
-      setClr('#22c55e');
-    } else {
-      setOutput("Be patient your profit will grow");
-      setClr('grey');
+    if (initial && current && quantity) {
+      if (initial > current) {
+        let loss = (initial - current) / quantity;
+        let lossPercentage = (loss / initial) * 100;
+        setOutput(
+          `Your loss is ${loss}, loss rate is ${lossPercentage.toFixed(2)}%`
+        );
+        setClr("#dc2626");
+      } else if (current > initial) {
+        let profit = (current - initial) / quantity;
+        let profitPercentage = (profit / initial) * 100;
+        setOutput(
+          `Your profit is ${profit}, growth rate is ${profitPercentage.toFixed(
+            2
+          )}%`
+        );
+        setClr("#22c55e");
+      } else {
+        setOutput("Be patient your profit will grow");
+        setClr("grey");
+      }
+    }else{
+        alert('Please fill all the Fields');
     }
   };
 
@@ -51,7 +55,7 @@ let ProfitAndLoss = () => {
         onChange={(e) => setCurrent(e.target.value)}
       />
       <button onClick={checkProfitAndLoss}>Check</button>
-      <h2 style={{color:clr}}>{output}</h2>
+      <h2 style={{ color: clr }}>{output}</h2>
     </div>
   );
 };
