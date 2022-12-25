@@ -38,3 +38,12 @@ button {
   color: white;
   font-weight: 600;
 }
+h2{
+  color:grey;
+}
+@media screen and (max-width: 900px) {
+  .container {
+    max-width: 90;;
+    width:80%;
+  }
+}
