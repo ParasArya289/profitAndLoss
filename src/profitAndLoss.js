@@ -13,14 +13,14 @@ let ProfitAndLoss = () => {
         let loss = (initial - current) / quantity;
         let lossPercentage = (loss / initial) * 100;
         setOutput(
-          `Your loss is ${loss}, loss rate is ${lossPercentage.toFixed(2)}%`
+          `Your loss is ${loss.toFixed(2)}, loss rate is ${lossPercentage.toFixed(2)}%`
         );
         setClr("#dc2626");
       } else if (current > initial) {
         let profit = (current - initial) / quantity;
         let profitPercentage = (profit / initial) * 100;
         setOutput(
-          `Your profit is ${profit}, growth rate is ${profitPercentage.toFixed(
+          `Your profit is ${profit.toFixed(2)}, growth rate is ${profitPercentage.toFixed(
             2
           )}%`
         );
