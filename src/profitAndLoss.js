@@ -5,7 +5,7 @@ let ProfitAndLoss = () => {
   let [quantity, setIQuantity] = useState(0);
   let [current, setCurrent] = useState(0);
   let [output, setOutput] = useState("");
-  let [flag,setFlag] = useState(false);
+  let [clr,setClr] = useState('grey');
 
   let checkProfitAndLoss = () => {
     if (initial > current) {
@@ -14,7 +14,7 @@ let ProfitAndLoss = () => {
       setOutput(
         `Your loss is ${loss}, loss rate is ${lossPercentage.toFixed(2)}%`
       );
-      setFlag(false);
+      setClr('#dc2626');
     } else if (current > initial) {
       let profit = (current - initial) / quantity;
       let profitPercentage = (profit / initial) * 100;
@@ -23,9 +23,10 @@ let ProfitAndLoss = () => {
           2
         )}%`
       );
-      setFlag(true);
+      setClr('#22c55e');
     } else {
       setOutput("Be patient your profit will grow");
+      setClr('grey');
     }
   };
 
@@ -50,7 +51,7 @@ let ProfitAndLoss = () => {
         onChange={(e) => setCurrent(e.target.value)}
       />
       <button onClick={checkProfitAndLoss}>Check</button>
-      <h2 style={{color:`${flag? '#22c55e' : '#dc2626'}`}}>{output}</h2>
+      <h2 style={{color:clr}}>{output}</h2>
     </div>
   );
 };
